@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iit-nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iit-nginx
+  template:
+    metadata:
+      labels:
+        app: iit-nginx
+    spec:
+      containers:
+        - name: iit-nginx-container
+          image: ravinjg/lugx-website-static:latest
+          ports:
+            - containerPort: 80
